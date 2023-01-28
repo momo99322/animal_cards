@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
+    <title>Cards game</title>
+    <link rel="stylesheet" href=".\css\style.css">
+    <link rel="stylesheet" href=".\css\game.css">
+</head>
+
+<body>
+<main>
+    <h1 id="main-title">Игра "Карточки"</h1>
+    <div id="game-container">
+        <div id="game">
+            <div id="top-menu">
+                <div id="levels-container"></div>
+                <div id="timer-container"></div>
+                <div id="score-container"></div>
+                <button id="score-button" onclick="location.href='scores.html'">Рейтинг игроков</button>
+                <button id="reset-button" onclick="resetProgress()">Сбросить прогресс</button>
+            </div>
+            <div id="rules"></div>
+            <div id="game-field"></div>
+            <div id="button-container"></div>
+        </div>
+    </div>
+</main>
+</body>
+
+<script type="text/javascript" src="js/game.js"></script>
+
+</html>
