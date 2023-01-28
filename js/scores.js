@@ -2,6 +2,11 @@ window.onload = function () {
     updateScoreBoard()
 }
 
+function getUsersFromLocalStorage() {
+    return JSON.parse(localStorage.getItem("users"), reviver)
+}
+
+
 function updateScoreBoard() {
     let scoreBoardElement = document.querySelector("#score-board");
     scoreBoardElement.innerHTML = ""
@@ -23,9 +28,4 @@ function updateScoreBoard() {
             scoreBoardElement.appendChild(line)
         }
     )
-}
-
-
-function getUsersFromLocalStorage() {
-    return JSON.parse(localStorage.getItem("users"), reviver)
 }
