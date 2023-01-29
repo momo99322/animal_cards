@@ -87,7 +87,7 @@ function createSelectRules() {
 }
 
 function createGroupRule() {
-    document.querySelector("#rules").innerHTML = `${currentLevel.id}. Сгруппируйте животных по признаку ${hiddenGroup.description}. Правильно поверните всех животных (используйте колёсико)`
+    document.querySelector("#rules").innerHTML = `${currentLevel.id}. Сгруппируйте животных по признаку ${hiddenGroup.description}. Правильно поверните всех животных (используйте колёсико мыши)`
 }
 
 function selectCardCondition() {
