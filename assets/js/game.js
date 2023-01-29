@@ -287,7 +287,7 @@ function createCards(maskNames = false) {
         cardElement.classList.add("card")
 
         cardImgElement.classList.add("card-img")
-        cardImgElement.style.backgroundImage = `url(../img/${card.imgUrl})`
+        cardImgElement.style.backgroundImage = `url(/animal_cards/assets/img/${card.imgUrl})`
 
         cardTextElement.classList.add("card-text")
         if (maskNames) {
