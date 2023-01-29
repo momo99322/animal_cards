@@ -87,7 +87,7 @@ function createSelectRules() {
 }
 
 function createGroupRule() {
-    document.querySelector("#rules").innerHTML = `${currentLevel.id}. Сгруппируйте животных по признаку ${hiddenGroup.description}. Правильно поверните всех животных (для поворота нажмите на колесико мыши)`
+    document.querySelector("#rules").innerHTML = `${currentLevel.id}. Сгруппируйте животных по признаку ${hiddenGroup.description}. Правильно поверните всех животных (используйте колёсико)`
 }
 
 function selectCardCondition() {
@@ -334,6 +334,34 @@ function randomIntFromInterval(min, max) {
 
 let isDragging = false;
 
+document.onwheel = function (event) {
+    let card = event.target.closest('.card');
+
+    if (!card) return;
+
+
+    event.preventDefault()
+
+
+    if (event.deltaY > 0) {
+        rotate(card, true)
+    } else {
+        rotate(card, false)
+    }
+
+    function rotate(card, forward) {
+        let transformAttribute = card.style.transform;
+
+        let newDeg;
+        if (forward) {
+            newDeg = (Number(transformAttribute.substring(transformAttribute.indexOf('(') + 1, transformAttribute.indexOf('deg)'))) + ROTATION_OFFSET) % 360;
+        } else  {
+            newDeg = (Number(transformAttribute.substring(transformAttribute.indexOf('(') + 1, transformAttribute.indexOf('deg)'))) - ROTATION_OFFSET) % 360;
+        }
+        card.style.transform = `rotate(${newDeg}deg)`;
+    }
+}
+
 document.onmousedown = function (event) {
     let card = event.target.closest('.card');
 
@@ -345,11 +373,6 @@ document.onmousedown = function (event) {
         return false;
     };
 
-    if (event.button === 1) {
-        rotate(card)
-        return;
-    }
-
     let shiftX, shiftY;
     if (event.button === 0) {
         if (selectedCard) {
@@ -360,12 +383,6 @@ document.onmousedown = function (event) {
         selectedCard.classList.add("selected")
 
         startDrag(card, event.clientX, event.clientY);
-    }
-
-    function rotate(card) {
-        let transformAttribute = card.style.transform;
-        let newDeg = (Number(transformAttribute.substring(transformAttribute.indexOf('(') + 1, transformAttribute.indexOf('deg)'))) + ROTATION_OFFSET) % 360;
-        card.style.transform = `rotate(${newDeg}deg)`;
     }
 
     function startDrag(element, clientX, clientY) {
