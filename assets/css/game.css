@@ -97,7 +97,15 @@
     height: 100%;
 }
 
+#score-button:hover {
+    border: 2px solid yellow;
+}
+
 #reset-button:hover {
+    border: 2px solid yellow;
+}
+
+#logout-button:hover {
     border: 2px solid yellow;
 }
 

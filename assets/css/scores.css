@@ -35,3 +35,7 @@
     margin-bottom: 10px;
     font-size: 20px;
 }
+
+#back-to-game-button:hover {
+    border: 2px solid yellow;
+}
