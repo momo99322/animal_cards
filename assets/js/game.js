@@ -188,6 +188,18 @@ window.onload = function () {
 }
 
 
+function updateUsernameContainer(username) {
+    let usernameContainerElement = document.querySelector("#username-container");
+    usernameContainerElement.innerHTML = ""
+
+    let usernameElement = document.createElement("p");
+
+    usernameElement.id = "username"
+    usernameElement.innerHTML = `Привет, ${username}!`
+
+    usernameContainerElement.appendChild(usernameElement)
+}
+
 function initializeUser() {
     let username = undefined;
     while (!username) {
@@ -207,6 +219,7 @@ function initializeUser() {
 
     setUsersToLocalStorage(users)
     setCurrentUser(username)
+    updateUsernameContainer(username)
 }
 
 function clearGameField() {
