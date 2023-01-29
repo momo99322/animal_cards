@@ -10,7 +10,7 @@ const CARD_WIDTH = 150
 const CARD_HEIGHT = 200
 const ROTATION_OFFSET = 60
 
-let allCardPool = [
+const allCardPool = [
     {name: "Лев", imgUrl: "lion.png", traits: ["wild", "predator"], element: undefined},
     {name: "Жираф", imgUrl: "giraffe.png", traits: ["wild", "herbivore"], element: undefined},
     {name: "Курица", imgUrl: "chicken.png", traits: ["pet", "herbivore"], element: undefined},
@@ -26,12 +26,8 @@ let allCardPool = [
     {name: "Фламинго", imgUrl: "flamingo.png", traits: ["wild", "herbivore"], element: undefined}
 ]
 
-let groupGameRules = [
-    {description: "дикое/домашнее", firstGroup: "wild", secondGroup: "pet"},
-    {description: "травоядное/хищник", firstGroup: "herbivore", secondGroup: "predator"}
-]
-
 const INITIAL_LEVELS = new Map()
+
 INITIAL_LEVELS.set("1", {
         winConditionFunction: "selectCardCondition",
         rulesFunction: "createSelectRules",
@@ -68,6 +64,11 @@ INITIAL_LEVELS.set("3", {
         cardsForLevel: 6
     }
 )
+
+let groupGameRules = [
+    {description: "дикое/домашнее", firstGroup: "wild", secondGroup: "pet"},
+    {description: "травоядное/хищник", firstGroup: "herbivore", secondGroup: "predator"}
+]
 
 const INITIAL_SCORE = 0;
 
@@ -156,7 +157,7 @@ function createSendAnswerAndCloseGameButtons() {
     let closeButton = document.createElement("button");
     closeButton.id = "over-button"
     closeButton.onclick = interruptGame
-    closeButton.innerHTML = "Прекратить досрочно"
+    closeButton.innerHTML = "Завершить досрочно"
 
     buttonContainerElement.appendChild(answerButton)
     buttonContainerElement.appendChild(closeButton)
